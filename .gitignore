@@ -1,0 +1,34 @@
+# Craft runtime and backups folders
+# ----------------------------------------------------------------------
+craft/storage/runtime/*
+craft/storage/backups/*
+
+# Uploaded files
+# ----------------------------------------------------------------------
+public/assets/uploads/*
+craft/storage/logo/*
+craft/storage/userphotos/*
+
+# Misc files
+# ----------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-workspace
+*.sublime-project
+*.komodoproject
+.komodotools
+_notes
+dwsync.xml
+logs/*
+*.log
+
+
+# sassy
+.sass-cache
+.sass-cache/*
