@@ -3,12 +3,11 @@
 // --------------------------------------------------
 
 // ---------------------- Base Colors
-$color_primary: blue;
-$color_secondary: green;
-$color_gray: #777;
-$color_gray_light: #ddd;
-$color_white: #fff;
-	
+$color_red: #f30f65;
+$color_pink: #D50C6D;
+$color_gray: #1E1E1E;
+$color_gray_light: #979797;
+
 // ---------------------- Applied Colors
 $color_background-body: #fff;
 $color_background-screen: #f1f1f1;
@@ -40,5 +39,3 @@ $font_code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font_pre: "Courier 10 Pitch", Courier, monospace;
 $font_line-height-body: 1.5;
 $font_line-height-pre: 1.6;
-
-

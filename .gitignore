@@ -9,6 +9,10 @@ public/assets/uploads/*
 craft/storage/logo/*
 craft/storage/userphotos/*
 
+# Sensitive info
+# ----------------------------------------------------------------------
+craft/config/db.php
+
 # Misc files
 # ----------------------------------------------------------------------
 .DS_Store

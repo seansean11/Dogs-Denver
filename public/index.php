@@ -19,5 +19,3 @@ if (!is_file($path))
 require_once $path;
 
 ?>
-
-<link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>

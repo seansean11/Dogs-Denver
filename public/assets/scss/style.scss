@@ -7,19 +7,28 @@
 @import "utilities/placeholders";
 
 // --------------------------------------------------
+//  LAYOUT
+// --------------------------------------------------
+
+@import "layout/susy";
+
+// --------------------------------------------------
 //  BASE
 // --------------------------------------------------
 
 @import "base/reset";
+@import "base/icomoon";
 @import "base/typography";
 @import "base/elements";
 @import "base/accessibility";
 @import "base/forms";
 
 // --------------------------------------------------
-//  LAYOUT
-// --------------------------------------------------
-
-// --------------------------------------------------
 //  MODULES
 // --------------------------------------------------
+
+@import "modules/ajax";
+@import "modules/hero";
+@import "modules/home";
+@import "modules/news";
+@import "modules/footer";

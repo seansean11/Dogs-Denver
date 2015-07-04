@@ -1,0 +1,16 @@
+// --------------------------------------------------
+// STYLES FOR THE SITES HERO
+// --------------------------------------------------
+
+.hero {
+    background-image: url("/assets/img/hero-park.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    border-bottom: 6px solid $color_red;
+
+    &__logo {
+        @include container(500px);
+        padding: 3em 2em;
+    }
+}

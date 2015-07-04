@@ -1,14 +1,86 @@
 {% extends "_layout" %}
 
 {% block main %}
-	<h1>{{ entry.title }}</h1>
+    <div class="site-ajax">
 
-	{{ entry.body }}
+    </div>
+    <div class="site-content">
+        <header class="hero">
+            <div class="hero__logo">
+                <img src="/assets/img/logo.svg">
+            </div>
+        </header>
+        <main>
+            <section class="main">
+                <div class="contain">
+                    <div class="main__images">
+                        <div class="main__carousel">
+                            {% set assets = entry.parkPhotos %}
+                            {% if assets | length  %}
+                                <ul>
+                                {% for asset in assets %}
+                                    <li><img src="{{ asset.url }}">{{ asset.url }}</li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                        <p class="main__caption">
 
-	<h2>Recent News</h2>
-	<ul>
-		{% for entry in craft.entries.section('news').limit(5).find() %}
-			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-		{% endfor %}
-	</ul>
+                        </p>
+                    </div>
+                    <div class="main__content">
+                        <h1><span class="title--font"></span></h1>
+
+                    </div>
+                </div>
+            </section>
+            <section class="help bg-gradient">
+                <h1></h1>
+                <div class="help__img">
+
+                </div>
+                <ul class="help__list">
+                    <li class="help__list-item">
+                        <a href="">
+                            <span class="help__icon"></span>
+                            <h2 class="title--font"></h2>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="news">
+                <h1></h1>
+                <div class="news__petition bg-gradient">
+                    <h2><span class="title--color"></span> dog lovers have signed the petition</h2>
+                    <a href="btn-solid">Join Us!</a>
+                </div>
+                <div class="news__grid">
+                    <article class="news__item">
+                        <header>
+                            <h1></h1>
+                            <time datetime=""></time>
+                        </header>
+                        <p></p>
+                        <a class="btn-solid">Read More</a>
+                    </article>
+                    <a class="btn-clear--large">Load More News</a>
+                </div>
+            </section>
+        </main>
+    	<h1>{{ entry.title }}</h1>
+
+    	{{ entry.body }}
+
+    	<h2>Recent News</h2>
+    	<ul>
+    		{% for entry in craft.entries.section('news').limit(5).find() %}
+    			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+    		{% endfor %}
+    	</ul>
+        <footer class"bg-dark footer">
+
+            <btn class="solid">To The Top</btn>
+            <cite><a href="#">Crafted in the company of a <span class="icon-dog"></span></a></cite>
+        </footer>
+    </div>
 {% endblock %}
