@@ -222,7 +222,6 @@ var DENVERDOGS = (function() {
 DENVERDOGS.init();
 
 
-
 // --------------------------------------------------
 // Google Maps - must be outside of IIFE to access window object
 // --------------------------------------------------
