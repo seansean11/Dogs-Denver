@@ -12,6 +12,7 @@ craft/storage/userphotos/*
 # Sensitive info
 # ----------------------------------------------------------------------
 craft/config/db.php
+craft/config/license.key
 
 # Misc files
 # ----------------------------------------------------------------------
