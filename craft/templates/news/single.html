@@ -1,0 +1,25 @@
+{% extends "news/_entry" %}
+
+{% block main %}
+    <a class="btn-close" id="js-back" href="{{ siteUrl ~ '#news' }}"><span class="icon-close"></span><span class="screen-reader">close</span></a>
+    <article class="contain">
+        <h1>{{ entry.title }}</h1>
+        <time datetime="{{ entry.postDate.rfc3339 }}">{{ entry.postDate|date("M jS, Y") }}</time>
+        {{ entry.body }}
+    </article>
+
+    <script type="text/javascript">
+    (function() {
+        var backBtn = document.getElementById('btn-close');
+        backBtn.addEventListener('click', function(e) {
+            var linkTarget = this.getAttribute('href');
+            document.body.classList.add('is-loading');
+            e.preventDefault();
+
+            setTimeout(function() {
+              window.location.href = linkTarget;
+            }, 500);
+        });
+    });
+    </script>
+{% endblock %}

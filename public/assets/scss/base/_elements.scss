@@ -2,6 +2,22 @@
 // GENERAL
 // --------------------------------------------------
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+	font-size: 52.5%;
+
+	@include media($bp_m) {
+		font-size: 57.5%;
+	}
+
+	@include media($bp_l) {
+		font-size: 62.5%;
+	}
+}
+
 hr {
 	background-color: $color_background-hr;
 	border: 0;
@@ -16,6 +32,11 @@ img {
 
 figure {
 	margin: 0;
+}
+
+a {
+	color: $color_red;
+	text-decoration: none;
 }
 
 // --------------------------------------------------

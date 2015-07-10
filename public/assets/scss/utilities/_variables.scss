@@ -5,6 +5,10 @@
 // ---------------------- Base Colors
 $color_red: #f30f65;
 $color_pink: #D50C6D;
+$color_pink_light: #FEF4F4;
+$color_purple: #DA0D78;
+$color_purple_light : #F8E6F3;
+$color_purple_dark: #9B2CA5;
 $color_gray: #1E1E1E;
 $color_gray_light: #979797;
 
@@ -34,8 +38,16 @@ $color_border: #ccc;
 // --------------------------------------------------
 // TYPOGRAPHY VARIABLES
 // --------------------------------------------------
-$font_paragraph: sans-serif;
+$font_paragraph: 'Lato', sans-serif;
+$font_alternate: 'Permanent Marker', cursive;
 $font_code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font_pre: "Courier 10 Pitch", Courier, monospace;
-$font_line-height-body: 1.5;
+$font_line-height-body: (28/18);
 $font_line-height-pre: 1.6;
+
+// --------------------------------------------------
+// MEDIA QUERIES
+// --------------------------------------------------
+$bp_s: 480px;
+$bp_m: 768px;
+$bp_l: 960px;

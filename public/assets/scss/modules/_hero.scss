@@ -5,12 +5,23 @@
 .hero {
     background-image: url("/assets/img/hero-park.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 50% 50%;
+    background-position: 50% 10%;
+    background-size: cover;
+    background-color: $color_purple;
     border-bottom: 6px solid $color_red;
+    position: relative;
 
     &__logo {
         @include container(500px);
         padding: 3em 2em;
+        animation: heartbeat 1.3s ease 1s;
     }
+}
+
+@keyframes heartbeat {
+  0%  { transform: scale(1); }
+  14% { transform: scale(1.2); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.2); }
+  70% { transform: scale(1); }
 }

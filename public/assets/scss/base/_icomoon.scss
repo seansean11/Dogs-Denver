@@ -23,14 +23,20 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-dog:before {
-    content: "\e601";
+.icon-mail:before {
+    content: "\f0e0";
 }
 .icon-facebook-square:before {
     content: "\e600";
 }
+.icon-dog:before {
+    content: "\e601";
+}
 .icon-location:before {
     content: "\e052";
+}
+.icon-close:before {
+    content: "\e070";
 }
 .icon-image:before {
     content: "\e186";

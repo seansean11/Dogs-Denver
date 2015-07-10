@@ -8,6 +8,7 @@
 // --------------------------------------------------
 
 $susy: (
-  columns: 12,  // The number of columns in your grid
-  gutters: 1/4, // The size of a gutter in relation to a single column
+  columns: 15,
+  gutters: 2/3,
+  global-box-sizing: border-box
 );

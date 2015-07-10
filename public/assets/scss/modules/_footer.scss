@@ -1,0 +1,56 @@
+// --------------------------------------------------
+// STYLES FOR THE SITES FOOTER
+// --------------------------------------------------
+
+.footer {
+    border-top: 6px solid $color_red;
+    padding-top: 5em;
+    text-align: center;
+    margin-top: 5em;
+    @include clearfix();
+
+    cite {
+        display: block;
+        margin-bottom: 3em;
+        a {
+            color: $color_gray_light;
+            font-weight: 300;
+
+            .icon-dog {
+                font-size: 30px;
+                margin-left: 0.2em;
+            }
+
+            &:hover {
+                .icon-dog {
+                    color: $color_red;
+                }
+            }
+        }
+    }
+
+    .btn-solid {
+        @include font-size(2.2);
+        display: block;
+        margin: 0 auto;
+        max-width: 181px;
+    }
+
+    @include media($bp_m) {
+        position: relative;
+        text-align: right;
+        padding-top: 8em;
+
+        cite {
+            margin-bottom: 10px;
+        }
+
+        .btn-solid {
+            position: absolute;
+            left: 50%; bottom: 0;
+            margin-left: -90.5px;
+            display: inline-block;
+            max-width: none;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{% paginate craft.entries.section('news').limit(3) as entriesOnPage %}
+<div id="js-news__grid" class="news__grid">
+    {% for entry in entriesOnPage %}
+        <article class="news__item">
+            <header>
+                <h1><a class="js-ajax" href="{{ entry.url }}">{{ entry.title }}</a></h1>
+                <time datetime="{{ entry.postDate.rfc3339 }}">{{ entry.postDate|date("M jS, Y") }}</time>
+            </header>
+            <p>{{ entry.body | hacksaw(words='50', append='...') }}</p>
+            <a class="btn-solid js-ajax" href="{{ entry.url }}">Read More</a>
+        </article>
+    {% endfor %}
+</div>
+
+{% if paginate.nextUrl %}
+    <a href="{{ paginate.nextUrl }}" class="btn-clear" id="js-ajax-infinite"><span class="text">Load More News</span><div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></a>
+{% endif %}
+
+{% endpaginate %}

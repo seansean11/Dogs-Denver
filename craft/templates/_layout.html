@@ -2,13 +2,19 @@
 <html>
 <head>
 	<title>For the Love of City Dogs Denver</title>
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="favicon.ico"/>
 </head>
 <body>
 	{% block main %}
 
 	{% endblock %}
+    <audio id="js-bark-audio" preload="auto">
+        <source src="/assets/audio/dogbark.mp3"></source>
+        <source src="/assets/audio/dogbark.ogg"></source>
+    </audio>
     <script type="text/javascript" src="/assets/js/plugins.js"></script>
     <script type="text/javascript" src="/assets/js/main.js"></script>
 </body>

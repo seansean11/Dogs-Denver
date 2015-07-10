@@ -27,8 +27,11 @@
 //  MODULES
 // --------------------------------------------------
 
-@import "modules/ajax";
+@import "modules/animations";
+@import "modules/buttons";
 @import "modules/hero";
-@import "modules/home";
-@import "modules/news";
+@import "modules/main";
 @import "modules/footer";
+@import "modules/carousel";
+@import "modules/single";
+@import "modules/nav";
