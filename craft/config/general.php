@@ -8,5 +8,11 @@
  */
 
 return array(
-    'devMode' => true,
+    '.dev' => array(
+        'devMode' => true,
+    ),
+    '.org' => array(
+        'devMode' => false,
+    ),
+
 );
