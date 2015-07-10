@@ -2,10 +2,6 @@
 // MAIN STYLES FOR THE SITE
 // --------------------------------------------------
 
-.no-mas {
-    animation: shake .7s ease;
-}
-
 body {
     animation: fade 0.5s ease;
     opacity: 1;
@@ -18,6 +14,10 @@ body {
 
 .is-loading {
     opacity: 0;
+}
+
+.no-mas {
+    animation: shake .7s ease;
 }
 
 .bg {
@@ -97,7 +97,10 @@ body {
 
 .contain {
     @include container(1200px);
-    padding-right: 10px; padding-left: 10px;
+
+    @include media($bp_s) {
+        padding-right: 10px; padding-left: 10px;
+    }
 }
 
 .layer {
