@@ -203,6 +203,7 @@ body {
         top: 0; left: 0;
         width: 100%; height: 100%;
         background-image: url('http://maps.googleapis.com/maps/api/staticmap?center=39.741049,-104.958437&zoom=13&scale=2&size=359x231&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xef49e4%7Clabel:1%7C39.741049,-104.958437');
+        background-size: cover;
     }
 }
 
