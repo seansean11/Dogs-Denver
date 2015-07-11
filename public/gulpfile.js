@@ -36,7 +36,7 @@ gulp.task('styles', function() {
 
 // Plugins
 gulp.task('plugins', function() {
-  return gulp.src(path.scripts + '/plugins/*.js')
+  return gulp.src(path.scripts + '/plugins.js')
     .pipe(concat('plugins.js'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
@@ -76,7 +76,10 @@ gulp.task('watch', function() {
   gulp.watch(path.sass + '/**/*.scss', ['styles']);
 
   // Watch .js files
-  gulp.watch(path.scripts + '/**/*.js', ['scripts']);
+  gulp.watch(path.plugins + '/plugins.js', ['scripts']);
+
+  // Watch .js files
+  gulp.watch(path.scripts + '/main.js', ['scripts']);
 
   // Watch image files
   gulp.watch(path.images + '/**/*', ['images']);
