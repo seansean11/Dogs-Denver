@@ -2,8 +2,11 @@
 // MAIN STYLES FOR THE SINGLE PAGE
 // --------------------------------------------------
 
-.contain {
-    padding-right: 40px; padding-left: 40px;
+
+.single {
+    .contain {
+        padding-right: 40px; padding-left: 40px;
+    }
 }
 
 .btn-close {

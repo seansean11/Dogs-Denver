@@ -97,9 +97,9 @@ body {
 
 .contain {
     @include container(1200px);
-
-    @include media($bp_s) {
-        padding-right: 10px; padding-left: 10px;
+    padding-right: 15px; padding-left: 15px;
+    @include media($bp_m) {
+        padding-right: 20px; padding-left: 20px;
     }
 }
 
@@ -163,7 +163,7 @@ body {
         opacity: 1;
         transform: scale(1);
         position: relative;
-        z-index: 1;
+        z-index: 2;
         transition: 0.3s opacity ease, 0.3s transform ease;
 
         .is-map & {
@@ -193,6 +193,7 @@ body {
 
     &__map {
         position: absolute;
+        z-index: 0;
         top: 0; left: 0;
         width: 100%; height: 100%;
     }
@@ -201,7 +202,7 @@ body {
 .btn-toggle {
     position: absolute;
     left: 10px; top: 10px;
-    z-index: 2;
+    z-index: 3;
     transition: width 0.3s ease;
 
     .icon-close {
