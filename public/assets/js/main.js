@@ -249,7 +249,7 @@ var MAP = {
     height: 463
 };
 
-if(U.mobileCheck) {
+if(U.mobileCheck()) {
 
     // clear image
     MAP.el.innerHTML = '';
