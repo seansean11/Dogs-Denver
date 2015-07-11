@@ -1,8 +1,7 @@
 // --------------------------------------------------
-// JS custom scripts
+// UTILITY SCRIPTS
 // --------------------------------------------------
-
-var DENVERDOGS = (function() {
+var U = (function() {
 
     function closest(el, fn) {
         while (el) {
@@ -41,10 +40,9 @@ var DENVERDOGS = (function() {
                 console.log(xhr.statusText);
             }
         };
-
     }
 
-    this.debounce = function(func, wait, immediate) {
+    function debounce(func, wait, immediate) {
         var timeout;
         return function() {
             var context = this,
@@ -62,11 +60,24 @@ var DENVERDOGS = (function() {
         };
     };
 
-    this.stickyNav = function() {
+    return {
+        closest: closest,
+        noMasLinks: noMasLinks,
+        XHRById: XHRById,
+        debounce: debounce
+    };
+})();
+
+// --------------------------------------------------
+// FUNCTIONALITY SCRIPTS
+// --------------------------------------------------
+var DENVERDOGS = (function() {
+
+    function stickyNav() {
         var hero = document.querySelector('.hero');
         var nav = document.getElementById('js-nav-main');
 
-        var heroHeight = this.debounce(function() {
+        var heroHeight = U.debounce(function() {
             var threshold = hero.offsetHeight - window.scrollY;
             if(threshold < 0 && !nav.classList.contains('is-shown')) {
                 nav.classList.add('is-shown');
@@ -79,7 +90,7 @@ var DENVERDOGS = (function() {
         window.addEventListener('resize', heroHeight);
     }
 
-    this.carousel = function() {
+    function carousel() {
         // Carousel selectors
         var parkGallery = document.getElementById('js-park-gallery');
         var childCount = parkGallery.children;
@@ -91,9 +102,9 @@ var DENVERDOGS = (function() {
                 contain: true
             });
         }
-    };
+    }
 
-    this.fakeAjax = function() {
+    function fakeAjax() {
         var ajaxLinks = document.querySelectorAll('.js-ajax');
 
         if(ajaxLinks.length) {
@@ -115,9 +126,9 @@ var DENVERDOGS = (function() {
 
         }
 
-    };
+    }
 
-    this.infiniteLoad = function() {
+    function infiniteLoad() {
         var newsGrid = document.getElementById('js-news__grid');
         var infiniteButton = document.getElementById('js-ajax-infinite');
 
@@ -126,7 +137,7 @@ var DENVERDOGS = (function() {
             var ajaxUrl = infiniteButton.getAttribute('href');
             e.preventDefault();
 
-            XHRById(ajaxUrl, 'news', function(data) {
+            U.XHRById(ajaxUrl, 'news', function(data) {
                 var articles = data.querySelectorAll('.news__item');
                 var nextButton = data.querySelector('#js-ajax-infinite');
 
@@ -135,7 +146,7 @@ var DENVERDOGS = (function() {
                 } else {
                     infiniteButton.setAttribute('href', '');
                     infiniteButton.removeEventListener('click', infiniteLoad);
-                    noMasLinks(infiniteButton);
+                    U.noMasLinks(infiniteButton);
                 }
 
                 for (var i = 0; i < articles.length; i++) {
@@ -149,21 +160,21 @@ var DENVERDOGS = (function() {
             });
 
         });
-    };
+    }
 
-    this.fastClick = function() {
+    function fastClick() {
         document.addEventListener('DOMContentLoaded', function() {
             FastClick.attach(document.body);
         }, false);
     }
 
-    this.autoScroll = function() {
+    function autoScroll() {
         smoothScroll.init();
-    };
+    }
 
-    this.mapToggle = function() {
+    function mapToggle() {
         var mapToggle = document.getElementById('js-map-toggle');
-        var container = closest(mapToggle, function (el) {
+        var container = U.closest(mapToggle, function (el) {
             return el.className === 'park__images';
         });
 
@@ -171,18 +182,18 @@ var DENVERDOGS = (function() {
             container.classList.toggle('is-map');
             e.preventDefault();
         });
-    };
+    }
 
-    this.dogBark = function() {
-            var barkAudio = document.getElementById('js-bark-audio');
-            var barkHover = document.getElementById('js-bark-hover');
+    function dogBark() {
+        var barkAudio = document.getElementById('js-bark-audio');
+        var barkHover = document.getElementById('js-bark-hover');
 
-            barkHover.addEventListener('mouseover', function() {
-                barkAudio.play();
-            });
-    };
+        barkHover.addEventListener('mouseover', function() {
+            barkAudio.play();
+        });
+    }
 
-    this.mobileNav = function() {
+    function mobileNav() {
         var nav = document.getElementById('js-nav-main');
         var navBtn = document.getElementById('js-mobile-nav');
         var navLinks = nav.querySelectorAll('a');
@@ -201,32 +212,24 @@ var DENVERDOGS = (function() {
         };
     };
 
-    this.init = function() {
-        this.debounce();
-        this.stickyNav();
-        this.carousel();
-        this.fakeAjax();
-        this.infiniteLoad();
-        this.fastClick();
-        this.autoScroll();
-        this.mapToggle();
-        this.dogBark();
-        this.mobileNav();
+    function init() {
+        stickyNav();
+        carousel();
+        fakeAjax();
+        infiniteLoad();
+        fastClick();
+        autoScroll();
+        mapToggle();
+        dogBark();
+        mobileNav();
     };
 
-    return this;
-
+    init();
 })();
 
-// Init the scripts
-DENVERDOGS.init();
-
-
-
 // --------------------------------------------------
-// Google Maps - must be outside of IIFE to access window object
+// GOOGLE MAPS - must be outside of IIFE to access window object
 // --------------------------------------------------
-
 function initialize() {
     var parkLatlng = new google.maps.LatLng(39.741049,-104.958437);
     var mapOptions = {
@@ -244,7 +247,7 @@ function initialize() {
             title: 'Josephine Gardens Dog Park'
     });
 
-    var responsiveMap = DENVERDOGS.debounce(function() {
+    var responsiveMap = U.debounce(function() {
         var center = map.getCenter();
         google.maps.event.trigger(map, "resize");
         map.setCenter(center);

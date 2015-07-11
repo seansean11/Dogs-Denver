@@ -10,7 +10,14 @@ textarea {
 	color: $color_text;
 	font-family: $font_paragraph;
 	line-height: $font_line-height-body;
-	@include font-size(1.8);
+	@include font-size(2.2);
+	@include media($bp_m) {
+		@include font-size(2.0);
+	}
+
+	@include media($bp_l) {
+		@include font-size(1.8);
+	}
 }
 
 // --------------------------------------------------
@@ -19,7 +26,10 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
-	line-height: (64/48);
+	line-height: (61/48);
+	@include media($bp_m) {
+		line-height: (64/48);
+	}
 }
 
 h1 {
