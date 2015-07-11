@@ -8,11 +8,11 @@
  */
 
 return array(
-    '.dev' => array(
+    '*' => array(
         'devMode' => true,
     ),
-    '.org' => array(
-        'devMode' => false,
-    ),
 
+    'dogsdenver.org' => array(
+        'devMode' => false,
+    )
 );
