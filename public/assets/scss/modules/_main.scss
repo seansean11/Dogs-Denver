@@ -163,20 +163,14 @@ body {
         opacity: 1;
         position: relative;
         z-index: 2;
+        transform: scale(1);
+        transition: 0.3s opacity ease, 0.3s transform ease;
 
         .is-map & {
+            transform: scale(0.8);
             opacity: 0;
             visibility: none;
             pointer-events: none;
-        }
-
-        @include media($bp_s) {
-            transform: scale(1);
-            transition: 0.3s opacity ease, 0.3s transform ease;
-
-            .is-map & {
-                transform: scale(0.8);
-            }
         }
     }
 
@@ -202,7 +196,7 @@ body {
         z-index: 0;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background-image: url('http://maps.googleapis.com/maps/api/staticmap?center=39.741049,-104.958437&zoom=13&scale=2&size=359x231&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xef49e4%7Clabel:1%7C39.741049,-104.958437');
+        background-image: url('http://maps.googleapis.com/maps/api/staticmap?center=39.741049,-104.958437&zoom=14&scale=2&size=640x412&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xef49e4%7Clabel:1%7C39.741049,-104.958437');
         background-size: cover;
     }
 }
