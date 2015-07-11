@@ -139,34 +139,36 @@ var DENVERDOGS = (function() {
         var newsGrid = document.getElementById('js-news__grid');
         var infiniteButton = document.getElementById('js-ajax-infinite');
 
-        infiniteButton.addEventListener('click', function infiniteLoad(e) {
-            infiniteButton.classList.add('is-busy');
-            var ajaxUrl = infiniteButton.getAttribute('href');
-            e.preventDefault();
+        if(infiniteButton) {
+            infiniteButton.addEventListener('click', function infiniteLoad(e) {
+                infiniteButton.classList.add('is-busy');
+                var ajaxUrl = infiniteButton.getAttribute('href');
+                e.preventDefault();
 
-            U.XHRById(ajaxUrl, 'news', function(data) {
-                var articles = data.querySelectorAll('.news__item');
-                var nextButton = data.querySelector('#js-ajax-infinite');
+                U.XHRById(ajaxUrl, 'news', function(data) {
+                    var articles = data.querySelectorAll('.news__item');
+                    var nextButton = data.querySelector('#js-ajax-infinite');
 
-                if(nextButton) {
-                    infiniteButton.setAttribute('href', nextButton.getAttribute('href'));
-                } else {
-                    infiniteButton.setAttribute('href', '');
-                    infiniteButton.removeEventListener('click', infiniteLoad);
-                    U.noMasLinks(infiniteButton);
-                }
+                    if(nextButton) {
+                        infiniteButton.setAttribute('href', nextButton.getAttribute('href'));
+                    } else {
+                        infiniteButton.setAttribute('href', '');
+                        infiniteButton.removeEventListener('click', infiniteLoad);
+                        U.noMasLinks(infiniteButton);
+                    }
 
-                for (var i = 0; i < articles.length; i++) {
-                    newsGrid.appendChild(articles[i]);
-                };
+                    for (var i = 0; i < articles.length; i++) {
+                        newsGrid.appendChild(articles[i]);
+                    };
 
-                setTimeout(function(){
-                    infiniteButton.classList.remove('is-busy');
-                }, 300);
+                    setTimeout(function(){
+                        infiniteButton.classList.remove('is-busy');
+                    }, 300);
+
+                });
 
             });
-
-        });
+        }
     }
 
     function fastClick() {
