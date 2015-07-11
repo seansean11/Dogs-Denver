@@ -18,7 +18,9 @@
                                 {% endfor %}
                                 </ul>
                             {% endif %}
-                            <div class="park__map" id="js-park-map"></div>
+                            <div class="park__map" id="js-park-map">
+                                <img alt="Josephine Gardens Dog Park" src="https://maps.googleapis.com/maps/api/staticmap?center=39.741049,-104.958437&zoom=15&size=400x400&markers">
+                            </div>
                         </div>
                         <figcaption class="park__caption">
                             {{ entry.photosCaption }}
@@ -54,7 +56,7 @@
                 <div class="news__petition bg-gradient">
                      <div class="contain">
                         <h2><span class="title--color">1,200</span> dog lovers have signed the petition</h2>
-                        <a class="btn-solid" href="">Join Us!</a>
+                        <a class="btn-solid" href="{{ globalMedia.petitionUrl }}">Join Us!</a>
                     </div>
                 </div>
 
