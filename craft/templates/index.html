@@ -19,7 +19,7 @@
                                 </ul>
                             {% endif %}
                             <div class="park__map" id="js-park-map">
-                                <img alt="Josephine Gardens Dog Park" src="https://maps.googleapis.com/maps/api/staticmap?center=39.741049,-104.958437&zoom=15&size=400x400&markers">
+                                <img alt="Josephine Gardens Dog Park" src="https://maps.googleapis.com/maps/api/staticmap?center=39.741049,-104.958437&zoom=15&size=719x463&markers">
                             </div>
                         </div>
                         <figcaption class="park__caption">
@@ -70,4 +70,6 @@
         {% include '_includes/footer' %}
 
     </div>
+    {% set changeOrg = craft.placid.get('changeOrg') %}
+    <h1>{{ changeOrg.signature_count }}</h1>
 {% endblock %}
