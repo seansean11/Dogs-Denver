@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>For the Love of City Dogs Denver</title>
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-    <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-</head>
-<body class="single">
-    {% block main %}
+{% extends "_layout" %}
+{% set title = entry.title %}
+{% if entry.articleDescription|length %}
+    {% set description = entry.articleDescription %}
+{% endif %}
 
-    {% endblock %}
-</body>
-</html>
+{% block body %}
+    <script type="text/javascript">
+    (function() {
+        var backBtn = document.getElementById('btn-close');
+        backBtn.addEventListener('click', function(e) {
+            var linkTarget = this.getAttribute('href');
+            document.body.classList.add('is-loading');
+            e.preventDefault();
+
+            setTimeout(function() {
+              window.location.href = linkTarget;
+            }, 500);
+        });
+    });
+    </script>
+    {{ parent() }}
+{% endblock %}

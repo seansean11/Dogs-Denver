@@ -1,72 +1,89 @@
 {% extends "_layout" %}
 
-{% block main %}
-    <div class="site-content" id="top">
-        {% include '_includes/nav' %}
-        {% include '_includes/hero' %}
-        <main>
-            <section class="park layer" id="park">
-                <div class="contain">
-                    <figure class="park__images">
-                        <div class="park__media">
-                            <a class="btn-toggle" id="js-map-toggle" href="#"><span class="icon-close"></span><span class="icon-location"></span> View Map</a>
-                            {% set assets = entry.parkPhotos %}
-                            {% if assets | length  %}
-                                <ul class="park__carousel" id="js-park-gallery">
-                                {% for asset in assets %}
-                                    <li><img src="{{ asset.url }}"></li>
-                                {% endfor %}
-                                </ul>
-                            {% endif %}
-                            <div class="park__map" id="js-park-map"></div>
-                        </div>
-                        <figcaption class="park__caption">
-                            {{ entry.photosCaption }}
-                        </figcaption>
-                    </figure>
-                    <div class="park__content">
-                        <h1 class="title">{{ entry.firstRichTitle | replace ({'%<p>%': '', '%</p>%': ''}) | raw }} <div><span class="title--font title--shutdown">{{ entry.firstRichTitle2 | replace ({'%<p>%': '', '%</p>%': ''}) | raw }}</span></div></h1>
-                        <div class="clear">{{ entry.body }}</div>
-                    </div>
-                </div>
-            </section>
-            <section class="help layer" id="help">
-                <div class="bg-gradient">
+{% block body %}
+    <body class="home">
+        <div class="site-content" id="top">
+            {% include '_includes/nav' %}
+            {% include '_includes/hero' %}
+            <main>
+                <section class="park layer" id="park">
                     <div class="contain">
-                        <h1 class="title">{{ entry.secondRichTitle | replace ({'%<p>%': '', '%</p>%': ''}) | raw }}</h1>
-                        <div class="help__img"><img src="/assets/img/dog-sad.png" alt="sad dog"></div>
-                        <ul class="help__list">
-                            {% for helpItem in entry.helpOptions %}
-                                <li class="help__list-item">
-                                    <a class="js-ajax" href="{{ helpItem.iconLink }}">
-                                        <span class="help__list-number">{{ loop.index0 + 1 }}</span>
-                                        <span class="icon-{{ helpItem.iconType }}"></span>
-                                        <h2 class="title--font">{{ helpItem.iconText }}</h2>
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
+                        <figure class="park__images">
+                            <div class="park__media">
+                                <a class="btn-toggle" id="js-map-toggle" href="#"><span class="icon-close"></span><span class="icon-location"></span> View Map</a>
+                                {% set assets = entry.parkPhotos %}
+                                {% if assets | length  %}
+                                    <ul class="park__carousel" id="js-park-gallery">
+                                    {% for asset in assets %}
+                                        <li><img src="{{ asset.url }}"></li>
+                                    {% endfor %}
+                                    </ul>
+                                {% endif %}
+                                <div class="park__map" id="js-park-map"></div>
+                            </div>
+                            <figcaption class="park__caption">
+                                {{ entry.photosCaption }}
+                            </figcaption>
+                        </figure>
+                        <div class="park__content">
+                            <h1 class="title">{{ entry.firstRichTitle | replace ({'%<p>%': '', '%</p>%': ''}) | raw }} <div><span class="title--font title--shutdown">{{ entry.firstRichTitle2 | replace ({'%<p>%': '', '%</p>%': ''}) | raw }}</span></div></h1>
+                            <div class="clear">{{ entry.body }}</div>
+                        </div>
                     </div>
-                </div>
-            </section>
-            <section class="news layer" id="news">
-                <h1 class="title">{{ entry.richTitle | replace ({'%<p>%': '', '%</p>%': ''}) | raw }}</h1>
-                <div class="news__petition bg-gradient">
-                     <div class="contain">
-                        {% set changeOrg = craft.placid.get('changeOrg') %}
-                        <h2><span class="title--color">{{ changeOrg.signature_count }}</span> dog lovers have signed the petition</h2>
-                        <a target='_blank' class="btn-solid" href="{{ globalMedia.petitionUrl }}">Join Us!</a>
+                </section>
+                <section class="help layer" id="help">
+                    <div class="bg-gradient">
+                        <div class="contain">
+                            <h1 class="title">{{ entry.secondRichTitle | replace ({'%<p>%': '', '%</p>%': ''}) | raw }}</h1>
+                            <div class="help__img"><img src="/assets/img/dog-sad.png" alt="sad dog"></div>
+                            <ul class="help__list">
+                                {% for helpItem in entry.helpOptions %}
+                                    <li class="help__list-item">
+                                        <a class="js-ajax" href="{{ helpItem.iconLink }}">
+                                            <span class="help__list-number">{{ loop.index0 + 1 }}</span>
+                                            <span class="icon-{{ helpItem.iconType }}"></span>
+                                            <h2 class="title--font">{{ helpItem.iconText }}</h2>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                </section>
+                <section class="news layer" id="news">
+                    <h1 class="title">{{ entry.richTitle | replace ({'%<p>%': '', '%</p>%': ''}) | raw }}</h1>
+                    <div class="news__petition bg-gradient">
+                         <div class="contain">
+                            {% set changeOrg = craft.placid.get('changeOrg') %}
+                            <h2><span class="title--color">{{ changeOrg.signature_count }}</span> dog lovers have signed the petition</h2>
+                            <a target='_blank' class="btn-solid" href="{{ globalMedia.petitionUrl }}">Join Us!</a>
+                        </div>
+                    </div>
 
-                <div class="contain">
-                    {% include '_includes/news' %}
-                </div>
+                    <div class="contain">
+                        {% include '_includes/news' %}
+                    </div>
 
-            </section>
-        </main>
+                </section>
+            </main>
 
-        {% include '_includes/footer' %}
+            {% include '_includes/footer' %}
 
-    </div>
+        </div>
+
+        <audio id="js-bark-audio" preload="auto">
+            <source src="/assets/audio/dogbark.mp3"></source>
+            <source src="/assets/audio/dogbark.ogg"></source>
+        </audio>
+
+        {% if craft.config.devMode %}
+            <script type="text/javascript" src="/assets/js/plugins.js"></script>
+            <script type="text/javascript" src="/assets/js/main.js"></script>
+        {% else %}
+            <script type="text/javascript" src="/assets/js/plugins.min.js"></script>
+            <script type="text/javascript" src="/assets/js/main.min.js"></script>
+        {% endif %}
+
+        {{ parent() }}
+    </body>
 {% endblock %}
