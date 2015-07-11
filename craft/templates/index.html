@@ -55,7 +55,8 @@
                 <h1 class="title">{{ entry.richTitle | replace ({'%<p>%': '', '%</p>%': ''}) | raw }}</h1>
                 <div class="news__petition bg-gradient">
                      <div class="contain">
-                        <h2><span class="title--color">1,200</span> dog lovers have signed the petition</h2>
+                        {% set changeOrg = craft.placid.get('changeOrg') %}
+                        <h2><span class="title--color">{{ changeOrg.signature_count }}</span> dog lovers have signed the petition</h2>
                         <a target='_blank' class="btn-solid" href="{{ globalMedia.petitionUrl }}">Join Us!</a>
                     </div>
                 </div>
@@ -70,6 +71,4 @@
         {% include '_includes/footer' %}
 
     </div>
-    {% set changeOrg = craft.placid.get('changeOrg') %}
-    <h1>{{ changeOrg.signature_count }}</h1>
 {% endblock %}
