@@ -9,6 +9,6 @@
 
     #Force non-www:
     RewriteEngine on
-    RewriteCond %{HTTP_HOST} ^www\.example\.org [NC]
-    RewriteRule ^(.*)$ http://denverdogs.org/$1 [L,R=301]
+    RewriteCond %{HTTP_HOST} ^www\.dogsdenver\.org [NC]
+    RewriteRule ^(.*)$ http://dogsdenver.org/$1 [L,R=301]
 </IfModule>
